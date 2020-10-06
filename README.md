@@ -27,3 +27,9 @@ As seguintes regras devem ser seguidas nesta formatação:
 Realize um fork deste repositório, desenvolva sua solução e encaminhe o seu repositório com o seu código. Arquivos compactados não serão aceitos.
 
 Altere o arquivo README para descrever quais componentes foram utilizados e como sua aplicação deverá ser executada.
+
+## Componentes utilizados para criação
+* Microsoft AspNet Core 3.1
+* Angular 8
+* Entity Framework Core 3.1
+* MySql Entity Framework Core 8.0
