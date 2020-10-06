@@ -1,0 +1,54 @@
+
+<form class="form-horizontal" novalidate (ngSubmit)="save()" [formGroup]="formGroup">
+  <fieldset>
+
+
+    <div class="inserirValor">
+      <label class="col-md-3 control-label">Informe a quantidade de nomes:</label>
+
+      <input class="form-control col-md-2" id="nome" type="number" required formControlName="nome" />
+
+      <button class="btn btn-primary col-md-2" (click)="adicionar()">Gerar campos</button>
+
+      <div *ngIf="(qtdeCampos > 0)">
+        <p>{{qtdeCampos}}</p>
+        <div *ngFor="let i of qtdeCampos">
+          
+          <div class="form-group" [ngClass]="{'has-error': (formGroup.get('nome').touched || formGroup.get('nome').dirty) && !formGroup.get('nome').valid }">
+            <label class="col-md-2 control-label" for="nome">Nome</label>
+
+            <div class="col-md-8">
+              <input class="form-control" id="nome" type="text" required formControlName="nome" />
+              <span class="help-block" *ngIf="(formGroup.get('nome').touched || formGroup.get('nome').dirty) && formGroup.get('nome').errors">
+                <span *ngIf="formGroup.get('nome').errors.required">O campo nome é obrigatório</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <p class="text-danger" *ngIf="!(nomes && nomes.length)">
+      Não existe nenhum nome para ser exibido.
+    </p>
+
+    <table class="table" *ngIf="(nomes && nomes.length)">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th class="text-center">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of nomes">
+          <td>{{i.nome}}</td>
+          <td style="display: flex; justify-content: space-around;">
+            <button class="btn btn-danger" (click)="excluirNome(i)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </fieldset>
+</form>

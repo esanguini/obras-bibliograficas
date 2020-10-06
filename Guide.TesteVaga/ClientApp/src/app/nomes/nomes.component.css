@@ -1,0 +1,8 @@
+.inserirValor {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.inserirValor input {
+    margin-right: 10px;
+}
